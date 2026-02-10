@@ -10,9 +10,9 @@ import {
     DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 import { Input } from "../ui/input";
-import { Search, Moon, Sun } from "lucide-react";
-import { useEffect, useState } from "react";
+import { Search } from "lucide-react";
 import { Button } from "../ui/button";
+import { ThemeToggle } from "../ui/ThemeToggle";
 
 
 const user = {
@@ -44,6 +44,7 @@ export function Header() {
 
             <div className="flex items-center gap-4">
                 {/* Todo Add Theme toggel button Here */}
+                <ThemeToggle />
 
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
