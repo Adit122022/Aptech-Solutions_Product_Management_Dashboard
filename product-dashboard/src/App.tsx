@@ -5,8 +5,6 @@ import DashboardPage from "@/pages/dashboard";
 import { ProtectedRoute } from "@/components/layout/protected-route";
 import { MainLayout } from "@/components/layout/main-layout";
 import { Toaster } from "@/components/ui/sonner";
-import { useQuery } from "@tanstack/react-query";
-import { userService } from "@/services/user.service";
 import ProductListPage from "./pages/Products/product-list";
 import AddProductPage from "./pages/Products/add";
 import EditProductPage from "./pages/Products/edit";
@@ -17,11 +15,7 @@ import SettingsPage from "./pages/settings";
 
 
 function App() {
-  const { data } = useQuery({
-    queryKey: ["users"],
-    queryFn: () => userService.getAll({ limit: 0 }),
-  });
-  console.log("Fetched users:", data);
+
 
   return (
     <Router>
