@@ -2,7 +2,7 @@
 
 A comprehensive Admin Dashboard built with React 18, TypeScript, and ShadCN UI for managing e-commerce products. This project demonstrates production-ready architecture, robust state management with TanStack Query, and secure authentication flows.
 
-![Project Banner](./public/image.png)
+![Project Banner](./product-dashboard/public/image.png)
 
 ## 🚀 Key Features
 
