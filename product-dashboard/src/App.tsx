@@ -1,12 +1,37 @@
-import React from 'react'
-import { Header } from './components/layout/header'
 
-const App = () => {
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import LoginPage from "@/pages/login";
+import DashboardPage from "@/pages/dashboard";
+import { ProtectedRoute } from "@/components/layout/protected-route";
+import { MainLayout } from "@/components/layout/main-layout";
+import { Toaster } from "@/components/ui/sonner";
+import { useQuery } from "@tanstack/react-query";
+import { userService } from "@/services/user.service";
+
+
+function App() {
+  const { data } = useQuery({
+    queryKey: ["users"],
+    queryFn: () => userService.getAll({ limit: 0 }),
+  });
+  console.log("Fetched users:", data);
   return (
-    <div>
-      <Header />
-    </div>
-  )
+    <Router>
+      <Routes>
+        <Route path="/login" element={<LoginPage />} />
+
+        <Route element={<ProtectedRoute />}>
+          <Route element={<MainLayout />}>
+            <Route path="/" element={<Navigate to="/dashboard" replace />} />
+            <Route path="/dashboard" element={<DashboardPage />} />
+
+            {/* Add other protected routes here */}
+          </Route>
+        </Route>
+      </Routes>
+      <Toaster />
+    </Router>
+  );
 }
 
-export default App
+export default App;
