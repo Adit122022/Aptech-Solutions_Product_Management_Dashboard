@@ -1,5 +1,4 @@
 
-
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import {
     DropdownMenu,
@@ -14,11 +13,14 @@ import { Search } from "lucide-react";
 import { Button } from "../ui/button";
 import { ThemeToggle } from "../ui/ThemeToggle";
 import { useAuthStore } from "@/store/auth.store";
+import ProfileDialog from "@/pages/ProfileDialog";
+import { useState } from "react";
 
 
 
 export function Header() {
     const { user, logout } = useAuthStore();
+    const [profileDialogOpen, setProfileDialogOpen] = useState(false);
 
 
     return (
@@ -59,8 +61,8 @@ export function Header() {
                             </div>
                         </DropdownMenuLabel>
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem>Profile</DropdownMenuItem>
-                        <DropdownMenuItem>Settings</DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => setProfileDialogOpen(true)}>Profile</DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => window.location.href = '/settings'}>Settings</DropdownMenuItem>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem onClick={() => logout()}>
                             Log out
@@ -68,6 +70,7 @@ export function Header() {
                     </DropdownMenuContent>
                 </DropdownMenu>
             </div>
+            <ProfileDialog open={profileDialogOpen} onOpenChange={setProfileDialogOpen} />
         </header>
     );
 }

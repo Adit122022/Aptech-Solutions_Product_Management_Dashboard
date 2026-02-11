@@ -14,12 +14,15 @@ import UsersPage from "./pages/User";
 import SettingsPage from "./pages/settings";
 
 
+
+
 function App() {
   const { data } = useQuery({
     queryKey: ["users"],
     queryFn: () => userService.getAll({ limit: 0 }),
   });
   console.log("Fetched users:", data);
+
   return (
     <Router>
       <Routes>

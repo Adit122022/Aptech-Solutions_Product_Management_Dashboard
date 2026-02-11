@@ -44,6 +44,7 @@ import {
     AlertDialogHeader,
     AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function ProductListPage() {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -201,7 +202,19 @@ export default function ProductListPage() {
                         {isLoading ? (
                             Array(5).fill(0).map((_, i) => (
                                 <TableRow key={i}>
-                                    <TableCell colSpan={9} className="h-24 text-center">Loading...</TableCell>
+                                    <TableCell colSpan={9} className="h-24 text-center">
+
+                                        <TableCell><Checkbox /></TableCell>
+                                        <TableCell>
+                                            <Skeleton className="h-10 w-10 rounded" />
+                                        </TableCell>
+                                        <TableCell className="font-medium max-w-[200px] truncate">
+                                            <Skeleton className="h-4 w-32" />
+                                        </TableCell>
+                                        <TableCell><Skeleton className="h-4 w-16" /></TableCell>
+                                        <TableCell><Skeleton className="h-4 w-16" /></TableCell>
+                                        <TableCell><Skeleton className="h-4 w-12" /></TableCell>
+                                    </TableCell>
                                 </TableRow>
                             ))
                         ) : data?.products.length === 0 ? (
