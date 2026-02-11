@@ -10,6 +10,8 @@ import { userService } from "@/services/user.service";
 import ProductListPage from "./pages/Products/product-list";
 import AddProductPage from "./pages/Products/add";
 import EditProductPage from "./pages/Products/edit";
+import UsersPage from "./pages/User";
+import SettingsPage from "./pages/settings";
 
 
 function App() {
