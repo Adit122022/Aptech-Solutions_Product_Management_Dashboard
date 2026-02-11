@@ -41,10 +41,10 @@ api.interceptors.response.use(
           `${API_BASE_URL}/auth/refresh`,
           {
             refreshToken,
-            expiresInMins: 1, 
+            expiresInMins: 30, 
           },
         );
-
+console.log(response)
         const { accessToken, refreshToken: newRefreshToken } = response.data;
 
         localStorage.setItem("accessToken", accessToken);

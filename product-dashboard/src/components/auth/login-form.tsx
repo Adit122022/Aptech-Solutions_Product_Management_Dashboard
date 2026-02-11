@@ -49,7 +49,7 @@ export function LoginForm() {
     }
 
     return (
-        <Card className="w-[350px]">
+        <Card className="w-87.5">
             <CardHeader>
                 <CardTitle>Login</CardTitle>
                 <CardDescription>Enter your credentials to access the dashboard.</CardDescription>
