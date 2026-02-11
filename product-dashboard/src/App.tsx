@@ -7,6 +7,9 @@ import { MainLayout } from "@/components/layout/main-layout";
 import { Toaster } from "@/components/ui/sonner";
 import { useQuery } from "@tanstack/react-query";
 import { userService } from "@/services/user.service";
+import ProductListPage from "./pages/Products/product-list";
+import AddProductPage from "./pages/Products/add";
+import EditProductPage from "./pages/Products/edit";
 
 
 function App() {
@@ -24,8 +27,11 @@ function App() {
           <Route element={<MainLayout />}>
             <Route path="/" element={<Navigate to="/dashboard" replace />} />
             <Route path="/dashboard" element={<DashboardPage />} />
-
-            {/* Add other protected routes here */}
+            <Route path="/products" element={<ProductListPage />} />
+            <Route path="/products/add" element={<AddProductPage />} />
+            <Route path="/products/edit/:id" element={<EditProductPage />} />
+            <Route path="/users" element={<UsersPage />} />
+            <Route path="/settings" element={<SettingsPage />} />
           </Route>
         </Route>
       </Routes>

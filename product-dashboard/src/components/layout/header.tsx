@@ -13,21 +13,13 @@ import { Input } from "../ui/input";
 import { Search } from "lucide-react";
 import { Button } from "../ui/button";
 import { ThemeToggle } from "../ui/ThemeToggle";
+import { useAuthStore } from "@/store/auth.store";
 
 
-const user = {
-    username: "avior",
-    firstName: "Aditya",
-    lastName: "Sharma",
-    image: "",
-    email: "a@a.com"
-}
+
 export function Header() {
+    const { user, logout } = useAuthStore();
 
-    const logout = () => {
-        alert("Logout Functionality Coming Soon!");
-        // Todo Add Logout Functionality Here
-    }
 
     return (
         <header className="h-14 border-b bg-card flex items-center px-4 md:px-6 justify-between">
